@@ -1,0 +1,49 @@
+OTM_system.txt
+
+@startuml
+left to right direction
+
+actor Student as "学生"
+actor Teacher as "教員"
+actor Admin as "事務局"
+
+package "el-Campus" {
+  usecase "オンライン授業を見る" as UC1
+  usecase "教材をダウンロード" as UC2
+  usecase "課題を提出する" as UC3
+  usecase "テストを受ける" as UC4
+  usecase "お知らせを確認する" as UC5
+}
+
+package "UNIVERSAL PASSPORT " {
+  usecase "時間割を確認する" as UC6
+  usecase "履修登録を行う" as UC7
+  usecase "成績を確認する" as UC8
+  usecase "シラバスを見る" as UC9
+  usecase "大学からの通知を受け取る" as UC10
+}
+
+
+Student --> UC1
+Student --> UC2
+Student --> UC3
+Student --> UC4
+Student --> UC5
+Student --> UC6
+Student --> UC7
+Student --> UC8
+Student --> UC9
+Student --> UC10
+
+
+Teacher --> UC1
+Teacher --> UC5
+Teacher --> UC3  : 課題を出題する
+Teacher --> UC4  : テストを作成する
+
+
+Admin --> UC7
+Admin --> UC8
+Admin --> UC10
+
+@enduml
